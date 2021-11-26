@@ -8,7 +8,7 @@ package fuzz
 import (
 	"bytes"
 
-	"github.com/chai2010/webp"
+	"github.com/flywave/webp"
 )
 
 func Fuzz(data []byte) int {
