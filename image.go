@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	MemPMagic = "MemP" // See https://github.com/chai2010/image
+	MemPMagic = "MemP" // See https://github.com/flywave/image
 )
 
 const (
@@ -28,7 +28,7 @@ var (
 	_ MemP        = (*MemPImage)(nil)
 )
 
-// MemP Image Spec (Native Endian), see https://github.com/chai2010/image.
+// MemP Image Spec (Native Endian), see https://github.com/flywave/image.
 type MemP interface {
 	MemPMagic() string
 	Bounds() image.Rectangle

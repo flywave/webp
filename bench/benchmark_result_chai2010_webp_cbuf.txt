@@ -2,7 +2,7 @@
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
-# go test -bench=chai2010_webp_cbuf$
+# go test -bench=flywave_webp_cbuf$
 
 # name, run times, speed, ns/op
 1_webp_a                                  	     500	   2566146 ns/op

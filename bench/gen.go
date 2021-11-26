@@ -91,7 +91,7 @@ import (
 	"io/ioutil"
 	"testing"
 
-	chai2010_webp "github.com/flywave/webp"
+	flywave_webp "github.com/flywave/webp"
 	x_image_webp "golang.org/x/image/webp"
 )
 
@@ -108,11 +108,11 @@ func tbLoadData(tb testing.TB, filename string) []byte {
 
 func printTestCase(w io.Writer, filename string) {
 	s := `
-func BenchmarkDecode_{{.goodBaseName}}_chai2010_webp(b *testing.B) {
+func BenchmarkDecode_{{.goodBaseName}}_flywave_webp(b *testing.B) {
 	data := tbLoadData(b, "{{.filename}}")
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		m, err := chai2010_webp.Decode(bytes.NewReader(data))
+		m, err := flywave_webp.Decode(bytes.NewReader(data))
 		if err != nil {
 			b.Fatal(err)
 		}
@@ -132,11 +132,11 @@ func BenchmarkDecode_{{.goodBaseName}}_x_image_webp(b *testing.B) {
 	}
 }
 
-func BenchmarkDecode_{{.goodBaseName}}_chai2010_webp_tosize(b *testing.B) {
+func BenchmarkDecode_{{.goodBaseName}}_flywave_webp_tosize(b *testing.B) {
 	data := tbLoadData(b, "{{.filename}}")
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		m, err := chai2010_webp.DecodeRGBAToSize(data, 256, 256)
+		m, err := flywave_webp.DecodeRGBAToSize(data, 256, 256)
 		if err != nil {
 			b.Fatal(err)
 		}
