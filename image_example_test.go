@@ -11,40 +11,6 @@ import (
 	"reflect"
 )
 
-func ExamplePixSilce() {
-	a := []int32{101, 102, 103}
-	b := AsPixSilce(a)
-
-	b.Int32s()[0] = 12345
-	b.SetValue(1, reflect.Int32, 1002)
-	b.SetValue(2, reflect.Int32, 1003.5)
-	fmt.Printf("len(b) = %d\n", len(b))
-	fmt.Printf("b.Int32s() = %v\n", b.Int32s())
-	// Output:
-	// len(b) = 12
-	// b.Int32s() = [12345 1002 1003]
-}
-
-func ExamplePixSilce_SwapEndian() {
-	rgba64 := image.NewRGBA64(image.Rect(0, 0, 1, 1))
-	rgba64.SetRGBA64(0, 0, color.RGBA64{
-		R: 0x0102,
-		G: 0x0304,
-		B: 0x0506,
-		A: 0x0708,
-	})
-
-	// pix is big-endian format
-	fmt.Printf("big-endian: %v\n", rgba64.Pix)
-
-	AsPixSilce(rgba64.Pix).SwapEndian(reflect.Uint16)
-	fmt.Printf("little-endian: %v\n", rgba64.Pix)
-
-	// Output:
-	// big-endian: [1 2 3 4 5 6 7 8]
-	// little-endian: [2 1 4 3 6 5 8 7]
-}
-
 func ExampleColor() {
 	c := MemPColor{
 		Channels: 4,
